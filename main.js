@@ -3,7 +3,7 @@ function searchTheNoun() {
     let address = 'https://www.google.co.kr/search?q='
     let s_noun = address + noun
 
-    document.getElementById('search-result').innerText = s_noun
+    // document.getElementById('search-result').innerText = s_noun
     window.open(s_noun)
 }
 
