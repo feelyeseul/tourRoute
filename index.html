@@ -12,30 +12,34 @@
     <header>
       <div class="headline" onclick="location.href='index.html'"> <!--나중에 URL 바꾸기-->
         <img
-          class="head-img"
+          class="HEADIMG"
           src="https://cdn.spotvnews.co.kr/news/photo/202104/416534_526861_1041.jpg"
         />
-        <div class="head-text">&nbsptourRoute</div>
+        <div class="HEADTEXT">&nbsptourRoute</div>
       </div>
       <nav>
-        <ul class="search-bar">
-            <input id="search-noun" onkeyup="pressEnterKey()"></input>
-            <button type="text" onclick="searchTheNoun()">
-                <img class="search-img" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"/>
-                &nbsp검색
+        <div class="SEARCHBAR">
+          <label>&nbsp<input id="search-noun" type="search" onkeyup="pressEnterKey()"></input></label>
+          <button type="button" onclick="searchTheNoun()">
+              <img class="SEARCHIMG" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"/>
+              &nbsp검색
             </button>
-        </ul>
-        <ul>
-          <li><a href="https://google.co.kr">루트검색</a></li>
-          <li><a href="https://google.co.kr">질&nbsp&nbsp문</a></li>
-          <li><a href="https://google.co.kr">사이트정보</a></li>
-        </ul>
+          </div>
+        <div class="MENUBAR">
+          <div id="underline-h"></div>
+          <a href="1.html">루트검색</a>
+          <a href="#">질&nbsp&nbsp문</a>
+          <a href="#">사이트정보</a>
+        </div>
       </nav>
     </header>
     <main>
       <section>
         지도 및 사용자 입력 공간
-        <div>
+        <form action="form.js">
+          form 만들자 이제
+        </form>
+        <div> <!--csv 테스트 하기 위한 div 공간-->
             <button onclick="mkCSV()">csv 결과</button>
             <!-- <a href="url" download="tourList.csv">click</a> -->
             <!-- <div value="csvContent"></div> -->
@@ -45,5 +49,6 @@
     <footer>개발자 개인정보를 입력하는 공간입니다.</footer>
 
     <script src="main.js"></script>
+    <!-- <script src="참고.js"></script> -->
   </body>
 </html>

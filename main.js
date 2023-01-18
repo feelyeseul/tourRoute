@@ -47,3 +47,16 @@ function mkCSV() {
     // var encodedUri = csvContent + encodeURI(arrayCon);
     // window.open(encodedUri);
 }
+
+
+// 메뉴바 언더라인 생성
+let horizontalUnderLine = document.getElementById("underline-h");
+let horizontalMenu = document.querySelectorAll("header nav div a");
+
+horizontalMenu.forEach(menu=>menu.addEventListener("mouseover",(e)=>horizontalSelect(e)))
+
+function horizontalSelect(e) {
+    horizontalUnderLine.style.left = e.currentTarget.offsetLeft + "px";
+    horizontalUnderLine.style.width = e.currentTarget.offsetWidth + "px";
+    horizontalUnderLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+}
