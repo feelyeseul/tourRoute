@@ -49,14 +49,22 @@ function mkCSV() {
 }
 
 
-// 메뉴바 언더라인 생성
+// 메뉴바 언더라인 생성 및 숨김
 let horizontalUnderLine = document.getElementById("underline-h");
 let horizontalMenu = document.querySelectorAll("header nav div a");
 
-horizontalMenu.forEach(menu=>menu.addEventListener("mouseover",(e)=>horizontalSelect(e)))
+let hs = horizontalUnderLine.style;
+console.log(horizontalMenu);
+
+horizontalMenu.forEach(menu=>menu.addEventListener("mouseover",(e)=>horizontalSelect(e)));
+horizontalMenu.forEach(menu=>menu.addEventListener("mouseout",(e)=>horizontalVanish(e)));
 
 function horizontalSelect(e) {
-    horizontalUnderLine.style.left = e.currentTarget.offsetLeft + "px";
-    horizontalUnderLine.style.width = e.currentTarget.offsetWidth + "px";
-    horizontalUnderLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+    hs.left = e.currentTarget.offsetLeft + "px";
+    hs.width = e.currentTarget.offsetWidth + "px";
+    hs.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+}
+
+function horizontalVanish(e) {
+    hs.width = 0;
 }
