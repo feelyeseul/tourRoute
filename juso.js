@@ -1,6 +1,9 @@
 // html select value 변경
 window.onload = async () => {
-  const locNameArr = await getLocalData("./dataBase/juSo.csv");
+  const fileURL = "juSo.csv";
+  const locNameArr = await getLocalData(fileURL);
+  console.log(getLocalData(fileURL));
+
   let changeDosi = document.getElementById("sel_doSi");
 
   createDosiList(locNameArr);
