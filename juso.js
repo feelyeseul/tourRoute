@@ -1,13 +1,13 @@
 // html select value 변경
 window.onload = async () => {
-  const fileURL = "juSo.csv";
+  const fileURL = "/dataBase/juSo.csv";
   const locNameArr = await getLocalData(fileURL);
   console.log(getLocalData(fileURL));
 
   let changeDosi = document.getElementById("sel_doSi");
 
   createDosiList(locNameArr);
-  createSigunguList(locNameArr)
+  createSigunguList(locNameArr);
 
   // 도/광역시 변경 이벤트 발생 시
   changeDosi.onchange = function() {

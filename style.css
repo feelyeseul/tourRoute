@@ -4,9 +4,29 @@ body {
 
 p {
     margin-top: 0;
+    font-family: sans-serif;
 }
 
-/* <사이트명> */
+button {
+    border: solid 0 darkblue;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.05rem grey;
+
+    background-color: rgba(240, 128, 128, 0.6);
+    font-weight: bolder;
+
+    padding: 0.4rem;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: rgba(240, 128, 128, 0.9);
+    box-shadow: 0.01rem 0.01rem 0.3rem 0.05rem white inset;
+}
+
+
+
+
+/* ==========<사이트명>========== */
 .header_fixed {
     position: sticky;
     top: 0;
@@ -68,7 +88,10 @@ p {
     text-decoration-color: blueviolet;
 }
 
-/* <내비게이션> */
+
+
+
+/* ==========<내비게이션>========== */
 nav {
     /* border: 1px solid red; */
 
@@ -81,11 +104,12 @@ nav {
 
 .MENUBAR {
     /* border: 1px solid blue; */
-    display: flex;
+    /* display: flex; */
+    position: relative;
     justify-content: space-between;
   }
 
-nav a {
+.dropdown_menu {
     display: inline-block;
     /* border: 1px solid black; */
 
@@ -96,8 +120,63 @@ nav a {
 
     margin-right: 3rem;
     margin-top: 6.25rem;
+    margin-bottom: 1rem;
+
+    cursor: pointer;
 }
 
+.dropdown_contents {
+    display: none;
+    position: absolute;
+    z-index: 1;
+
+    background-color: rgb(30, 30, 255);
+
+    margin-top: 0.25rem;
+    
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+}
+
+.MENUBAR:hover .dropdown_contents {
+    display: block;
+}
+
+.dropdown_contents a {
+    display: block;
+
+    color: whitesmoke;
+    font-size: 1rem;
+
+    text-decoration-line: none;
+
+    padding-top: 1rem;
+}
+
+#underline-h1 {
+    position: absolute;
+
+    width: 0;
+    height: 0.25rem;
+
+    background-color: lightcoral;
+    transition: 0.5s;
+}
+
+#underline-h2 {
+    position: absolute;
+
+    width: 0;
+    height: 0.2rem;
+
+    background-color: palevioletred;
+    transition: 0.2s;
+}
+
+
+
+/* ==========<검색창>========== */
 .SEARCHBAR {
     margin-top: 2rem;
     margin-right: 3rem;
@@ -111,51 +190,129 @@ nav a {
     height: 1.1rem;
 }
 
-#underline-h {
-    position: absolute;
-    top: 11.5rem;
-    left: 43rem;
 
-    width: 0;
-    height: 0.25rem;
 
-    background-color: lightcoral;
-    transition: 0.5s;
-}
-
-/* <본문> */
+/* ==========<본문>========== */
 main {
     height: auto;
     min-width: 900px;
     /* border: 0.2rem solid black; */
-    background: lightcyan;
+    /* background: lightcyan; */
 
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
 
 section {
-    /* border: 0.1rem solid red; */
+    border: 0.1rem solid red;
 }
 .section_wrapper {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 
+    font-family: Arial, sans-serif;
+
     padding-left: 20vw;
     padding-right: 20vw;
+}
+.section_wrapper label {
+    display: inline-block;
+    min-width: 6rem;
+    text-align: justify;
+    letter-spacing: 0;
+    
+    line-height: 0.5rem;
+    /* border: 1px solid black; */
+}
+.section_wrapper label:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    /* border-bottom: 2px solid black; */
+}
+.section_wrapper label:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    border-top: 2px solid black;
 }
 
 .section_header, .section_body {
     justify-content: center;
     text-align: left;
 }
-
-.section_heading, .section_list, .section_contents {
-    /* min-width: 700px; */
+.section_inputs {
+    display: flex;
+    padding-bottom: 0.5rem;
+}
+.section_button {
+    margin-right: 0.5rem;
 }
 
-/* <사이트 정보> */
+.section_mapresult {
+    display: flex;
+
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+#section_map {
+    height: 640px;
+    width: 640px;
+}
+.section_list, .section_contents {
+    margin-left: 1rem;
+}
+
+.section_textresult {
+    display: flex;
+    font-size: 1.2rem;
+    min-height: 2.5rem;
+
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.marker_img {
+    width: 1.5rem;
+    height: 2.5rem;
+    padding-right: 0.3rem;
+}
+
+.marker_text {
+    min-width: 7rem;
+    
+    line-height: 0.5rem;
+}
+.marker_text2 {
+    min-width: 7rem;
+    max-width: 15rem;
+
+    line-height: 0.5rem;
+
+    margin-left: 0.3rem;
+}
+.marker_text:before, .marker_text2:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+.marker_text:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    border-top: 2px solid black;
+}
+.marker_text2::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+/* ==========<사이트 정보>========== */
 footer {
     display: block;
     

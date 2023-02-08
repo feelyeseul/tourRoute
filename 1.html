@@ -1,3 +1,4 @@
+<!-- 정적 지도 사용자 입력 페이지 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TourRoute</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="main.ico" />
+    <link rel="icon" type="image/x-icon" href="/icon/main.ico" />
     <!--웹페이지 아이콘 변경-->
   </head>
   <body>
@@ -35,48 +36,119 @@
           </button>
         </div>
         <div class="MENUBAR">
-          <div id="underline-h"></div>
-          <a href="1.html">루트 검색</a>
-          <a href="#">자주 묻는 질문</a>
-          <a href="#">사이트 정보</a>
+          <div id="underline-h1"></div>
+          <span class="dropdown_menu"
+            >루트 검색
+            <div class="dropdown_contents">
+              <div id="underline-h2"></div>
+              <a href="1.html">정적 지도</a>
+              <a href="#">동적 지도</a>
+            </div>
+          </span>
+          <a class="dropdown_menu" href="#">자주 묻는 질문</a>
+          <a class="dropdown_menu" href="#">사이트 정보</a>
         </div>
       </nav>
     </header>
     <main>
       <section class="section_wrapper">
         <header class="section_header">
-          <p class="section_heading" style="font-size: 35px">
-            <strong>루트 검색</strong>
+          <p style="font-size: 35px">
+            <strong>정적 지도 생성</strong>
           </p>
         </header>
         <div class="section_body">
           <p class="section_list" style="font-size: 25px">
-            <strong>👉루트 검색</strong>
+            <strong>👇아래 순서대로 따라하세요.👇</strong>
           </p>
           <p class="section_contents">
             1. 여행을 원하는 지역을 선택한다.(도/광역시, 시/군/구)
           </p>
-          <p class="section_contents">2. 여행을 시작할 위치를 입력한다.</p>
-          <p class="section_contents">3. 목적지를 입력한다.(최대 00개)</p>
+          <p class="section_contents">2. 출발지를 입력한다.(집, 숙소 등)</p>
           <p class="section_contents">
-            4-1. 전부 입력했다면, 루트검색 버튼을 누른다.
+            <span>3. 목적지를 입력한다.<br /></span>
+            <span style="padding-left: 1rem">
+              3-1. 목적지 추가 : 목적지 입력칸 추가(최대 10개까지 추가 가능)
+              <br
+            /></span>
+            <span style="padding-left: 1rem">
+              3-2. 목적지 삭제 : 목적지 입력칸 삭제(최소 1개 필요)
+            </span>
           </p>
           <p class="section_contents">
-            4-2. 처음부터 입력하려면 초기화 버튼을 누른다.
+            4-1. 전부 입력했다면, '경로 결과보기' 버튼을 누른다.
           </p>
-          <p class="section_contents"><br /></p>
-          <p>
-            <label for="sel_doSi">도/광역시</label>
-            <select id="sel_doSi">
-            </select>
-            <label for="sel_siGunGu">시/군/구</label>
-            <select id="sel_siGunGu">
-            </select>
+          <p class="section_contents">
+            4-2. 목적지를 초기화하려면 '초기화' 버튼을 누른다.
           </p>
+          <p class="section_contents"></p>
         </div>
-        <div>
-            <input type="file" onchange="readCSV(this)">
+      </section>
+      <section class="section_wrapper" style="min-height: 630px">
+        <header class="section_header">
+          <div style="font-size: 25px">
+            <strong>🚕정보 입력</strong>
+          </div>
+          <br />
+        </header>
+        <p class="section_inputs">
+          <label for="sel_doSi">도/광역시</label>
+          <select id="sel_doSi"></select>
+          <strong style="min-width: 1rem"></strong>
+          <label for="sel_siGunGu">시/군/구</label>
+          <select id="sel_siGunGu"></select>
+        </p>
+        <p class="section_inputs">
+          <label for="location_start">출발지</label>
+          <input id="location_start" type="text" />
+        </p>
+        <div id="section_destination">
+          <div style="padding-bottom: 0.5rem">
+            <button
+              class="section_button"
+              id="location_add"
+              onclick="destinationAddBtn()"
+            >
+              목적지 추가
+            </button>
+            <button
+              class="section_button"
+              id="location_del"
+              onclick="destinationDelBtn()"
+            >
+              목적지 삭제
+            </button>
+          </div>
+          <div class="section_inputs" id="d1">
+            <label for="location_des1">목적지1</label>
+            <input id="location_des1" type="text" />
+          </div>
+
+          <div class="section_inputs" id="d2">
+            <label for="location_des2">목적지2</label>
+            <input id="location_des2" type="text" />
+          </div>
         </div>
+        <div class="section_inputs">
+          <button
+            class="section_button"
+            type="button"
+            onclick="destinationInfo()"
+          >
+            경로 결과보기
+          </button>
+          <button
+            class="section_button"
+            type="button"
+            onclick="resetInputValue()"
+          >
+            입력 값 초기화
+          </button>
+        </div>
+        <p>
+          <br />
+          <input type="file" onchange="readCSV(this)" />
+        </p>
       </section>
     </main>
     <footer>
@@ -89,5 +161,6 @@
     </footer>
     <script src="main.js"></script>
     <script src="juso.js"></script>
+    <script src="destination.js"></script>
   </body>
 </html>
