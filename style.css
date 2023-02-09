@@ -242,6 +242,9 @@ section {
     justify-content: center;
     text-align: left;
 }
+.section_subhead {
+    font-size: 1.6rem;
+}
 .section_inputs {
     display: flex;
     padding-bottom: 0.5rem;
@@ -261,7 +264,7 @@ section {
     height: 640px;
     width: 640px;
 }
-.section_list, .section_contents {
+.section_contents {
     margin-left: 1rem;
 }
 
